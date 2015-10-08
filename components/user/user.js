@@ -1,10 +1,10 @@
 /*
-User Module
-============
+ User Module
+ ============
 
-ui.validate is part of angular-ui-validate
+ ui.validate is part of angular-ui-validate
 
-*/
+ */
 var module = angular.module('App.User', ['ui.router', 'ui.validate']);
 
 module.config(function($stateProvider) {
@@ -27,13 +27,13 @@ module.config(function($stateProvider) {
       user: (User) => new User(),
       wizard: (user, RegistrationWizard) => new RegistrationWizard(user)
     },
-    templateUrl: 'modules/User/Register.html',
+    templateUrl: 'modules/User/user-register.html',
     controller: 'UserForm'
   });
 
   $stateProvider.state( 'register.step1', {
     url: '/step1', // /register/step1
-    templateUrl: 'modules/User/RegisterStep1.html'
+    templateUrl: 'modules/User/user-register-step-1.html'
   });
 
   $stateProvider.state( 'register.step2', {
@@ -50,7 +50,7 @@ module.config(function($stateProvider) {
 
   $stateProvider.state( 'register.step3', {
     url: '/step3', // /register/step3
-    templateUrl: 'modules/User/RegisterStep3.html',
+    templateUrl: 'modules/User/user-register-step-3.html',
     resolve: {
       // prevent accessing step prematurely
       validate: (wizard, $state) => {
@@ -59,39 +59,4 @@ module.config(function($stateProvider) {
       }
     }
   });
-});
-
-module.controller( 'Users', ($scope, users) => {
-  $scope.users = users;
-});
-
-module.controller( 'UserForm', ($scope, user, wizard) => {
-  $scope.user = user;
-  $scope.wizard = wizard;
-});
-
-module.factory( 'RegistrationWizard', () => {
-  class RegistrationWizard {
-    constructor(user) {
-      this.user = user;
-    }
-
-    stepsCompleted(stepCount) {
-      this['step'+stepCount]();
-    }
-
-    step1() {
-      return this.user.valid('name') && this.user.valid('email');
-    }
-
-    step2() {
-      // ...
-    }
-
-    step3() {
-      return this.user.valid('password');
-    }
-  }
-
-  return RegistrationWizard;
 });
