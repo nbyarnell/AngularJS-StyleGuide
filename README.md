@@ -61,5 +61,9 @@ visually. This flies in the face of the author(s) original intent - to make
 > "it easier for large applications to develop a structure that reflects the application itself,
 > while applying the *same* rules at each level of the hierarchy."
 
-(emphasis mine) Grouping these files together creates an exception to the rules laid out in design
-guide. So what's the solution? Writing highly reusable code I guess :)
+(emphasis mine)
+
+Grouping these files together creates an exception to the rules laid out in design
+guide. So what's the solution?
+
+Writing highly reusable code I guess :)
