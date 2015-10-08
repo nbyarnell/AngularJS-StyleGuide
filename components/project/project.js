@@ -8,7 +8,7 @@ module.config(function($stateProvider) {
   $stateProvider.state( 'projects', {
     parent: 'authenticated',
     url: '/projects',
-    templateUrl: 'modules/Project/projects.html',
+    templateUrl: 'modules/Project/project-projects.html',
     controller: 'Projects',
     resolve: {
       projects: (authenticatedUser, Project) => Project.list(authenticatedUser.id)
@@ -40,12 +40,12 @@ module.config(function($stateProvider) {
     parent: 'projects',
     url: '/:projectId', // /projects/:projectId (state must be defined AFTER /new)
     views: {
-      '': { // projects.html: <ui-view></ui-view>
+      '': { // project-projects.html: <ui-view></ui-view>
         templateUrl: 'modules/Project/project.html',
         controller: 'Project'
       },
       'header@authenticated': { // authenticated.html: <ui-view name="header"></ui-view>
-        templateUrl: 'modules/Project/project-header.html',
+        templateUrl: 'modules/Project/project-project-header.html',
         controller: 'ProjectHeader'
       }
     },

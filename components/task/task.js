@@ -42,12 +42,12 @@ module.config( ($stateProvider) => {
     parent: 'tasks',
     url: '/:taskId', // /projects/:projectId/tasks/:taskId (state must be defined AFTER /new)
     views: {
-      '': { // projects.html: <ui-view></ui-view>
+      '': { // project-projects.html: <ui-view></ui-view>
         templateUrl: 'modules/Task/task.html',
         controller: 'Task'
       },
       'header@project': { // Project/project.html: <ui-view name="header"></ui-view>
-        templateUrl: 'modules/Task/task-header.html',
+        templateUrl: 'modules/Task/task-task-header.html',
         controller: 'TaskHeader'
       }
     },

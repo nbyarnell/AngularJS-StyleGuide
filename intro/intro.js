@@ -23,7 +23,7 @@ module.config(function($stateProvider) {
     url: '/projects', // /intro/projects
     views: {
       'modal@': { // The $modal service places HTML at the top of the document. I know, it's weird.
-        templateUrl: 'modules/Intro/projects.html'
+        templateUrl: 'modules/Intro/project-projects.html'
       }
     },
   });
